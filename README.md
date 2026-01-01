@@ -97,3 +97,12 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## ENVS
+
+1) Заведите файл .env
+2) Вставте в него следующие переменные окружения:
+  - NODE_ENV
+  - POSTGRES_USER
+  - POSTGRES_PASSWORD
+  - POSTGRES_HOST
