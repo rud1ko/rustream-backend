@@ -15,6 +15,10 @@ export class AccountService {
 		return users
 	}
 
+	public async me(id: string) {
+		return await this.prismaService.user.findUnique({ where: { id } })
+	}
+
 	public async create(input: CreateUserInput) {
 		const { username, email, password } = input
 
@@ -23,15 +27,16 @@ export class AccountService {
 				username,
 			},
 		})
+
+		if (isUsernameExist) {
+			throw new ConflictException('Это имя пользователя уже занято')
+		}
+
 		const isEmailExist = await this.prismaService.user.findUnique({
 			where: {
 				email,
 			},
 		})
-
-		if (isUsernameExist) {
-			throw new ConflictException('Это имя пользователя уже занято')
-		}
 
 		if (isEmailExist) {
 			throw new ConflictException('Эта почта уже занята')
@@ -42,7 +47,7 @@ export class AccountService {
 				username,
 				email,
 				password: await hash(password),
-				displayName: username
+				displayName: username,
 			},
 		})
 
