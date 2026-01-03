@@ -8,12 +8,13 @@ import * as session from 'express-session'
 import { CoreModule } from './core/core.module'
 import { ms, type StringValue } from './shared/utils/ms'
 import { parseBoolean } from './shared/utils/parse-boolean'
+import { RedisService } from './core/redis/redis.service'
 
 async function bootstrap() {
 	const app = await NestFactory.create(CoreModule)
 
 	const config = app.get(ConfigService)
-	const redis = app.get(RedisStore)
+	const redis = app.get(RedisService)
 
 	app.use(cookieParser(config.getOrThrow<string>('COOKIES_SECRET')))
 
