@@ -3,18 +3,18 @@ import { IsNotEmpty, IsOptional, IsString, Matches, MaxLength } from 'class-vali
 
 @InputType()
 export class ChangeProfileInfoInput {
-	@Field()
+	@Field(() => String)
 	@IsString()
 	@IsNotEmpty()
 	@Matches(/^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$/)
 	public username: string
 
-	@Field()
+	@Field(() => String)
 	@IsString()
 	@IsNotEmpty()
 	public displayName: string
 
-	@Field()
+	@Field(() => String)
 	@IsString()
 	@IsOptional()
 	@MaxLength(300)

@@ -18,6 +18,7 @@ import { IS_DEV } from '../shared/utils/is-dev'
 import { getGraphQLConfig } from './config/graphql.config'
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
+import { SocialLinkModule } from '../modules/auth/social-link/social-link.module'
 
 @Module({
 	imports: [
@@ -43,6 +44,7 @@ import { RedisModule } from './redis/redis.module'
 		CronModule,
 		S3Module,
 		ProfileModule,
+		SocialLinkModule
 	],
 })
 export class CoreModule {}
