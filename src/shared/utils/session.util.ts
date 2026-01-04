@@ -23,7 +23,8 @@ export function saveSession(
 				)
 			}
 
-			resolve(user)
+			// Прокидывать объект {user} после изучения не сломает ли в verification.service
+			resolve({ user })
 		})
 	})
 }
