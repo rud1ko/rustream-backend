@@ -3,13 +3,16 @@ import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 
-import { AccountModule } from '../module/auth/account/account.module'
-import { SessionModule } from '../module/auth/session/session.module'
+import { AccountModule } from '../modules/auth/account/account.module'
+import { SessionModule } from '../modules/auth/session/session.module'
+import { VerificationModule } from '../modules/auth/verification/verification.module'
+import { MailModule } from '../modules/libs/mail/mail.module'
 import { IS_DEV } from '../shared/utils/is-dev'
 
 import { getGraphQLConfig } from './config/graphql.config'
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
+import { PasswordRecoveryModule } from '../modules/auth/password-recovery/password-recovery.module'
 
 @Module({
 	imports: [
@@ -25,8 +28,11 @@ import { RedisModule } from './redis/redis.module'
 		}),
 		PrismaModule,
 		RedisModule,
+		MailModule,
 		AccountModule,
 		SessionModule,
+		VerificationModule,
+		PasswordRecoveryModule
 	],
 })
 export class CoreModule {}

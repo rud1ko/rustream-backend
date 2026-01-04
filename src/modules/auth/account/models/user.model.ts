@@ -1,5 +1,6 @@
-import type { User } from '@/prisma/generated/client'
 import { Field, ID, ObjectType } from '@nestjs/graphql'
+
+import type { User } from '@/prisma/generated/client'
 
 @ObjectType()
 export class UserModel implements User {
@@ -23,6 +24,12 @@ export class UserModel implements User {
 
 	@Field(() => String, { nullable: true })
 	public bio: string
+
+	@Field(() => Boolean)
+	public isVerified: boolean
+
+	@Field(() => Boolean)
+	public isEmailVerified: boolean
 
 	@Field(() => Date)
 	public createdAt: Date
