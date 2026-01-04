@@ -5,6 +5,7 @@ import { render } from '@react-email/components'
 
 import type { SessionMetadata } from '@/src/shared/types/session-metadata.types'
 
+import { AccountRemoveTemplate } from './templates/account-remove.template'
 import { DeactivateTemplate } from './templates/deactivate.template'
 import { PasswordRecoveryTemplate } from './templates/password-recovery.template'
 import { VerificationTemplate } from './templates/verification.template'
@@ -44,6 +45,13 @@ export class MailService {
 		const html = await render(DeactivateTemplate({ token, metadata }))
 
 		return this.sendMail(email, 'Деактивация аккаунта', html)
+	}
+
+	public async sendAccountRemove(email: string) {
+		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+		const html = await render(AccountRemoveTemplate({ domain }))
+
+		return this.sendMail(email, 'Удаление аккаунта', html)
 	}
 
 	private sendMail(email: string, subject: string, html: string) {
