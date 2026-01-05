@@ -93,6 +93,7 @@ input NewPasswordInput {
 }
 
 type Query {
+  findAllStreams: [StreamModel!]!
   findAllUsers: [UserModel!]!
   findCurrentSession: SessionModel!
   findProfile: UserModel!
@@ -138,6 +139,20 @@ input SocialLinkOrderInput {
   position: String!
 }
 
+type StreamModel {
+  createdAt: DateTime!
+  id: ID!
+  ingressId: String
+  isLive: Boolean!
+  serverUrl: String
+  streamKey: String
+  thumbnailUrl: String
+  title: String!
+  updatedAt: DateTime!
+  user: UserModel!
+  userId: String!
+}
+
 type TotpModel {
   qrcodeUrl: String!
   secret: String!
@@ -160,6 +175,7 @@ type UserModel {
   isVerified: Boolean!
   password: String!
   socialLinks: [SocialLinkModel!]!
+  stream: StreamModel!
   totpSecret: String
   updatedAt: DateTime!
   username: String!

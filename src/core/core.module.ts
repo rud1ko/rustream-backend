@@ -19,6 +19,7 @@ import { getGraphQLConfig } from './config/graphql.config'
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
 import { SocialLinkModule } from '../modules/auth/social-link/social-link.module'
+import { StreamModule } from '../modules/stream/stream.module'
 
 @Module({
 	imports: [
@@ -44,7 +45,8 @@ import { SocialLinkModule } from '../modules/auth/social-link/social-link.module
 		CronModule,
 		S3Module,
 		ProfileModule,
-		SocialLinkModule
+		SocialLinkModule,
+		StreamModule
 	],
 })
 export class CoreModule {}
