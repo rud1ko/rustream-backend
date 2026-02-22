@@ -1,0 +1,1 @@
+export const MAX_RANDOM_CATEGORIES = 7

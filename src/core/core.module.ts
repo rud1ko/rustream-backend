@@ -24,6 +24,7 @@ import { getLiveKitConfig } from './config/live-kit.config'
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
 import { WebhookModule } from '../modules/webhook/webhook.module'
+import { CategoryModule } from '../modules/category/category.module'
 
 @Module({
 	imports: [
@@ -58,6 +59,7 @@ import { WebhookModule } from '../modules/webhook/webhook.module'
 		StreamModule,
 		IngressModule,
 		WebhookModule,
+		CategoryModule,
 	],
 })
 export class CoreModule {}
