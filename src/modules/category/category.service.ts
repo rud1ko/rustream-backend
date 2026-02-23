@@ -13,6 +13,14 @@ export class CategoryService {
 			orderBy: {
 				createdAt: 'desc',
 			},
+			include: {
+				streams: {
+					include: {
+						user: true,
+						category: true,
+					},
+				},
+			},
 		})
 
 		return categories
