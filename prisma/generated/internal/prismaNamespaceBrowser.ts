@@ -55,7 +55,8 @@ export const ModelName = {
   Token: 'Token',
   SocialLink: 'SocialLink',
   Stream: 'Stream',
-  Category: 'Category'
+  Category: 'Category',
+  ChatMessage: 'ChatMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -129,6 +130,9 @@ export const StreamScalarFieldEnum = {
   serverUrl: 'serverUrl',
   streamKey: 'streamKey',
   isLive: 'isLive',
+  isChatEnabled: 'isChatEnabled',
+  isChatFollowersOnly: 'isChatFollowersOnly',
+  isChatPremiumFollowersOnly: 'isChatPremiumFollowersOnly',
   userId: 'userId',
   categoryId: 'categoryId',
   createdAt: 'createdAt',
@@ -149,6 +153,18 @@ export const CategoryScalarFieldEnum = {
 } as const
 
 export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const ChatMessageScalarFieldEnum = {
+  id: 'id',
+  text: 'text',
+  userId: 'userId',
+  streamId: 'streamId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ChatMessageScalarFieldEnum = (typeof ChatMessageScalarFieldEnum)[keyof typeof ChatMessageScalarFieldEnum]
 
 
 export const SortOrder = {

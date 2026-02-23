@@ -18,7 +18,7 @@ export class CategoryResolver {
 	}
 
 	@Query(() => CategoryModel, { name: 'findCategoryBySlug' })
-	public async findBySlug(@Args('data') slug: string) {
+	public async findBySlug(@Args('slug') slug: string) {
 		return this.categoryService.findBySlug(slug)
 	}
 }
