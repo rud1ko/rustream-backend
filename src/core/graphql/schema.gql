@@ -89,6 +89,16 @@ input FiltersInput {
   take: Float
 }
 
+type FollowModel {
+  createdAt: DateTime!
+  follower: UserModel!
+  followerId: String!
+  following: UserModel!
+  followingId: String!
+  id: ID!
+  updatedAt: DateTime!
+}
+
 input GenerateStreamTokenInput {
   channelId: String!
   userId: String!
@@ -154,12 +164,16 @@ type Query {
   findCategoryBySlug(slug: String!): CategoryModel!
   findChatMessagesByStream(streamId: String!): [ChatMessageModel!]!
   findCurrentSession: SessionModel!
+  findMyFollowers: [FollowModel!]!
+  findMyFollowings: [FollowModel!]!
   findProfile: UserModel!
   findRandomCategories: [CategoryModel!]!
   findRandomStreams: [StreamModel!]!
   findSessionsByUser: [SessionModel!]!
   findSocialLinks: [SocialLinkModel!]!
+  followChannel(channelId: String!): Boolean!
   generateTotpSecret: TotpModel!
+  unfollowChannel(channelId: String!): Boolean!
 }
 
 input ResetPasswordInput {
