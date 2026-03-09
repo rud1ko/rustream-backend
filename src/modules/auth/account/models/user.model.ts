@@ -4,6 +4,7 @@ import type { User } from '@/prisma/generated/client'
 import { StreamModel } from '@/src/modules/stream/models/stream.model'
 
 import { SocialLinkModel } from '../../social-link/models/social-link.model'
+import { FollowModel } from '@/src/modules/follow/models/follow.model'
 
 @ObjectType()
 export class UserModel implements User {
@@ -48,6 +49,12 @@ export class UserModel implements User {
 
 	@Field(() => [SocialLinkModel])
 	public socialLinks: SocialLinkModel[]
+
+	@Field(() => [FollowModel])
+	public followers: FollowModel[]
+
+	@Field(() => [FollowModel])
+	public followings: FollowModel[]
 
 	@Field(() => StreamModel)
 	public stream: StreamModel
