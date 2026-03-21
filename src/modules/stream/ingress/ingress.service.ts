@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common'
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common'
 import {
 	type CreateIngressOptions,
 	IngressAudioEncodingPreset,
@@ -79,6 +79,49 @@ export class IngressService {
 			if (ingress.ingressId) {
 				await this.liveKitService.ingressClient.deleteIngress(ingress.ingressId)
 			}
+		}
+	}
+
+	public async cleanAllIngressesForcefully() {
+		try {
+			// Получаем ВСЕ ингрессы (без фильтрации по пользователю)
+			const ingresses = await this.liveKitService.ingressClient.listIngress();
+			
+			if (ingresses.length === 0) {
+				return false
+			}
+
+			// Удаляем все ингрессы
+			const deletePromises = ingresses.map(ingress => 
+				this.liveKitService.ingressClient.deleteIngress(ingress.ingressId)
+			);
+
+			await Promise.allSettled(deletePromises);
+
+			// Получаем все уникальные комнаты из ингрессов
+			const roomNames = [...new Set(ingresses.map(i => i.roomName).filter(Boolean))];
+			
+			// Удаляем все комнаты
+			const deleteRoomPromises = roomNames.map(roomName => 
+				this.liveKitService.roomService.deleteRoom(roomName)
+			);
+			
+			await Promise.allSettled(deleteRoomPromises);
+
+			// Очищаем данные в БД - обнуляем ingressId у всех стримов
+			await this.prismaService.stream.updateMany({
+				data: {
+					ingressId: null,
+					serverUrl: null,
+					streamKey: null,
+				},
+			});
+
+			return true
+		} catch (error) {
+			throw new InternalServerErrorException(
+				`Ошибка при очистке ингрессов: ${error.message}`,
+			);
 		}
 	}
 }

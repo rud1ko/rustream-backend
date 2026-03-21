@@ -19,4 +19,10 @@ export class IngressResolver {
 	) {
 		return this.ingressService.create(user, ingressType)
 	}
+
+	@Authorization()
+	@Mutation(() => Boolean, { name: 'cleanAllIngresses' })
+	public async cleanAll() {
+		return this.ingressService.cleanAllIngressesForcefully();
+	}
 }
