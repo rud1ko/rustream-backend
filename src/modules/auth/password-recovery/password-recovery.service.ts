@@ -13,6 +13,7 @@ import { generateToken } from '@/src/shared/utils/generate-token'
 import { getSessionMetadata } from '@/src/shared/utils/get-session-metadata.util'
 
 import { MailService } from '../../libs/mail/mail.service'
+import { TelegramService } from '../../libs/telegram/telegram.service'
 
 import { NewPasswordInput } from './inputs/new-password.input'
 import { ResetPasswordInput } from './inputs/reset-password.input'
@@ -22,6 +23,7 @@ export class PasswordRecoveryService {
 	public constructor(
 		private readonly prismaService: PrismaService,
 		private readonly mailService: MailService,
+		private readonly telegramService: TelegramService,
 	) {}
 
 	public async resetPassword(
@@ -31,7 +33,12 @@ export class PasswordRecoveryService {
 	) {
 		const { email } = input
 
-		const user = await this.prismaService.user.findUnique({ where: { email } })
+		const user = await this.prismaService.user.findUnique({
+			where: { email },
+			include: {
+				notificationSettings: true,
+			},
+		})
 
 		if (!user) {
 			throw new NotAcceptableException('Пользователь не найден')
@@ -50,6 +57,14 @@ export class PasswordRecoveryService {
 			passwordResetToken.token,
 			metadata,
 		)
+
+		if (passwordResetToken.user.notificationSettings.telegramNotifications && passwordResetToken.user.telegramId) {
+			await this.telegramService.sendPasswordResetToken(
+				passwordResetToken.user.telegramId,
+				passwordResetToken.token,
+				metadata,
+			)
+		}
 
 		return true
 	}

@@ -1,4 +1,4 @@
-import { Args, Query, Resolver } from '@nestjs/graphql'
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 
 import { User } from '@/prisma/generated/client'
 import { Authorization } from '@/src/shared/decorators/auth.decorator'
@@ -24,7 +24,7 @@ export class FollowResolver {
 	}
 
 	@Authorization()
-	@Query(() => Boolean, { name: 'followChannel' })
+	@Mutation(() => Boolean, { name: 'followChannel' })
 	public async follow(
 		@Authorized() user: User,
 		@Args('channelId') channelId: string,
@@ -33,7 +33,7 @@ export class FollowResolver {
 	}
 
 	@Authorization()
-	@Query(() => Boolean, { name: 'unfollowChannel' })
+	@Mutation(() => Boolean, { name: 'unfollowChannel' })
 	public async unfollow(
 		@Authorized() user: User,
 		@Args('channelId') channelId: string,
