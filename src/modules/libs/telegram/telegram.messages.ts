@@ -1,4 +1,4 @@
-import { User } from '@/prisma/generated/client'
+import type { SponsorshipPlan, User } from '@/prisma/generated/client'
 import { SessionMetadata } from '@/src/shared/types/session-metadata.types'
 
 export const MESSAGES = {
@@ -66,4 +66,19 @@ export const MESSAGES = {
 		`<b>У вас новый подписчик!</b>\n\n` +
 		`Это пользователь <a href="https://rustream.ru/${follower.username}">${follower.displayName}</a>\n\n` +
 		`Итоговое количество подписчиков на вашем канале: ${followersCount}`,
+	newSponsorship: (plan: SponsorshipPlan, sponsor: User) =>
+		`<b>Новый спонсор!</b>\n\n` +
+		`Вы получили новое спонсорство на план <b>${plan.title}</b>.\n` +
+		`Сумма: <b>${plan.price}</b> рублей\n` +
+		`Спонсор: <a href="https://rustream.ru/${sponsor.username}">${sponsor.displayName}</a>\n` +
+		`Дата оформления: <b>${new Date().toLocaleDateString()} в ${new Date().toLocaleTimeString()}</b>\n\n` +
+		`Благодарим вас за вашу работу и поддержку на платформе <b>RuStream!</b>`,
+	enableTwoFactor:
+		`Обеспевьте свою безопасность!\n\n` +
+		`Включите двухфакторную аутентификацию в <a href="https://rustream.ru/dashboard/settings">настройках аккаунта</a>.`,
+	verifyChannel:
+		`<b>🎉 Поздравляем! Ваш канал верифицирован</b>\n\n` +
+		`Мы рады сообщить, что ваш канал теперь верифицирован, и вы получили официальный значок.\n\n` +
+		`Значок верификации подтверждает подлинность вашего канала и улучшает доверие зрителей.\n\n` +
+		`Спасибо, что вы с нами и продолжаете развивать свой канал вместе с <b>RuStream</b>`,
 }
