@@ -31,7 +31,7 @@ export class AccountService {
 	public async me(id: string) {
 		return await this.prismaService.user.findUnique({
 			where: { id },
-			include: { socialLinks: true },
+			include: { socialLinks: true, stream: true, notificationSettings: true },
 		})
 	}
 
@@ -69,6 +69,9 @@ export class AccountService {
 						title: `Стрим ${username}`,
 					},
 				},
+				notificationSettings: {
+					create: {}
+				}
 			},
 		})
 

@@ -21,7 +21,7 @@ export class FollowService {
 	public async findMyFollowers(user: User) {
 		const followers = await this.prismaService.follow.findMany({
 			where: {
-				followerId: user.id,
+				followingId: user.id,
 			},
 			orderBy: {
 				createdAt: 'desc',
@@ -64,7 +64,7 @@ export class FollowService {
 		}
 
 		const existingFollow = await this.prismaService.follow.findFirst({
-			where: { followerId: user.id, followingId: channelId },
+			where: { followerId: user.id, followingId: channel.id },
 		})
 
 		if (existingFollow) {
@@ -74,7 +74,7 @@ export class FollowService {
 		const follow = await this.prismaService.follow.create({
 			data: {
 				followerId: user.id,
-				followingId: channelId,
+				followingId: channel.id,
 			},
 			include: {
 				follower: true,

@@ -248,6 +248,7 @@ type Query {
   findRecommendedChannels: [UserModel!]!
   findSessionsByUser: [SessionModel!]!
   findSocialLinks: [SocialLinkModel!]!
+  findSponsorsByChannel(channelId: String!): [SubscriptionModel!]!
   generateTotpSecret: TotpModel!
 }
 
@@ -294,8 +295,8 @@ input SocialLinkOrderInput {
 }
 
 type StreamModel {
-  category: CategoryModel!
-  categoryId: String!
+  category: CategoryModel
+  categoryId: String
   chatMessages: [ChatMessageModel!]!
   createdAt: DateTime!
   id: ID!
@@ -375,6 +376,8 @@ type UserModel {
   notifications: [NotificationModel!]!
   password: String!
   socialLinks: [SocialLinkModel!]!
+  sponsorshipPlans: [PlanModel!]!
+  sponsorshipSubscriptions: [SubscriptionModel!]!
   stream: StreamModel!
   telegramId: String
   totpSecret: String

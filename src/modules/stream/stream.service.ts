@@ -123,7 +123,7 @@ export class StreamService {
 
 		const fileName = `/streams/${user.username}.webp`
 
-		if (file.filename && file.filename.endWith('.gif')) {
+		if (file.filename && file.filename.endsWith('.gif')) {
 			const processedBuffer = await sharp(buffer, { animated: true })
 				.resize(1280, 720)
 				.webp()
@@ -237,7 +237,14 @@ export class StreamService {
 						},
 					},
 				},
-				// Добавить по категориям
+				{
+					category: {
+						title: {
+							contains: searchTerm,
+							mode: 'insensitive'
+						}
+					}
+				}
 			],
 		}
 	}

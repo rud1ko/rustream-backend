@@ -11,6 +11,11 @@ export class ChannelService {
 			where: {
 				isDeactivated: false,
 			},
+			orderBy: {
+				followings: {
+					_count: 'desc'
+				}
+			},
 			include: {
 				stream: true,
 			},
@@ -38,6 +43,8 @@ export class ChannelService {
 					},
 				},
 				followings: true,
+				sponsorshipPlans: true,
+				sponsorshipSubscriptions: true
 			},
 		})
 
