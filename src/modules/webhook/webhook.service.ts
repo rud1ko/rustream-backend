@@ -7,7 +7,6 @@ import { PrismaService } from '@/src/core/prisma/prisma.service'
 
 import { LiveKitService } from '../libs/live-kit/live-kit.service'
 import { StripeService } from '../libs/stripe/stripe.service'
-import { TelegramService } from '../libs/telegram/telegram.service'
 import { NotificationService } from '../notification/notification.service'
 
 @Injectable()
@@ -17,7 +16,6 @@ export class WebhookService {
 		private readonly configService: ConfigService,
 		private readonly liveKitService: LiveKitService,
 		private readonly notificationService: NotificationService,
-		private readonly telegramService: TelegramService,
 		private readonly stripeService: StripeService,
 	) {}
 
@@ -63,16 +61,6 @@ export class WebhookService {
 				if (follower.notificationSettings.siteNotifications) {
 					await this.notificationService.createStreamStart(
 						follower.id,
-						stream.user,
-					)
-				}
-
-				if (
-					follower.notificationSettings.telegramNotifications &&
-					follower.telegramId
-				) {
-					await this.telegramService.sendStreamStart(
-						follower.telegramId,
 						stream.user,
 					)
 				}
@@ -146,18 +134,6 @@ export class WebhookService {
 					sponsorshipSubscription.user,
 				)
 			}
-
-			if (
-				sponsorshipSubscription.channel.notificationSettings
-					.telegramNotifications &&
-				sponsorshipSubscription.channel.telegramId
-			) {
-				await this.telegramService.sendNewSponsorship(
-					sponsorshipSubscription.channel.telegramId,
-					sponsorshipSubscription.plan,
-					sponsorshipSubscription.user,
-				)
-			}
 		}
 
 		if (event.type === 'checkout.session.expired') {
@@ -187,7 +163,7 @@ export class WebhookService {
 		return this.stripeService.webhooks.constructEvent(
 			payload,
 			signature,
-			this.configService.getOrThrow<string>('STRIPE_WEBHOOK_SECRET')
+			this.configService.getOrThrow<string>('STRIPE_WEBHOOK_SECRET'),
 		)
 	}
 }

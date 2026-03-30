@@ -5,7 +5,6 @@ import { PrismaService } from '@/src/core/prisma/prisma.service'
 
 import { MailService } from '../libs/mail/mail.service'
 import { S3Service } from '../libs/s3/s3.service'
-import { TelegramService } from '../libs/telegram/telegram.service'
 import { NotificationService } from '../notification/notification.service'
 
 @Injectable()
@@ -14,7 +13,6 @@ export class CronService {
 		private readonly prismaService: PrismaService,
 		private readonly mailService: MailService,
 		private readonly s3Service: S3Service,
-		private readonly telegramService: TelegramService,
 		private readonly notificationService: NotificationService,
 	) {}
 
@@ -41,10 +39,6 @@ export class CronService {
 
 		for (const user of deactivatedAccounts) {
 			await this.mailService.sendAccountRemove(user.email)
-
-			if (user.notificationSettings.telegramNotifications && user.telegramId) {
-				await this.telegramService.sendAccountDeletion(user.telegramId)
-			}
 
 			if (user.avatar) {
 				this.s3Service.remove(user.avatar)
@@ -76,10 +70,6 @@ export class CronService {
 
 			if (user.notificationSettings.siteNotifications) {
 				await this.notificationService.createEnableTwoFactor(user.id)
-			}
-
-			if (user.notificationSettings.telegramNotifications && user.telegramId) {
-				await this.telegramService.sendEnableTwoFactor(user.telegramId)
 			}
 		}
 	}
@@ -113,13 +103,6 @@ export class CronService {
 
 				if (user.notificationSettings.siteNotifications) {
 					await this.notificationService.createVerifyChannel(user.id)
-				}
-
-				if (
-					user.notificationSettings.telegramNotifications &&
-					user.telegramId
-				) {
-					await this.telegramService.sendVerifyChannel(user.telegramId)
 				}
 			}
 		}

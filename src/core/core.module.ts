@@ -20,7 +20,6 @@ import { LiveKitModule } from '../modules/libs/live-kit/live-kit.module'
 import { MailModule } from '../modules/libs/mail/mail.module'
 import { S3Module } from '../modules/libs/s3/s3.module'
 import { StripeModule } from '../modules/libs/stripe/stripe.module'
-import { TelegramModule } from '../modules/libs/telegram/telegram.module'
 import { NotificationModule } from '../modules/notification/notification.module'
 import { PlanModule } from '../modules/sponsorship/plan/plan.module'
 import { SubscriptionModule } from '../modules/sponsorship/subscription/subscription.module'
@@ -79,7 +78,6 @@ import { RedisModule } from './redis/redis.module'
 		FollowModule,
 		ChannelModule,
 		NotificationModule,
-		TelegramModule,
 		PlanModule,
 		TransactionModule,
 		SubscriptionModule,
