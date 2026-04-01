@@ -33,6 +33,7 @@ export class WebhookService {
 				},
 				data: {
 					isLive: true,
+					startedAt: new Date(),
 				},
 				include: {
 					user: true,
@@ -74,6 +75,7 @@ export class WebhookService {
 				},
 				data: {
 					isLive: false,
+					startedAt: null,
 				},
 			})
 

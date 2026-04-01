@@ -118,7 +118,8 @@ model Stream {
   serverUrl    String? @map("server_url")
   streamKey    String? @map("stream_key")
 
-  isLive Boolean @default(false) @map("is_live")
+  isLive    Boolean   @default(false) @map("is_live")
+  startedAt DateTime? @map("started_at")
 
   chatMessages               ChatMessage[]
   isChatEnabled              Boolean       @default(true) @map("is_chat_enabled")

@@ -137,6 +137,7 @@ export const StreamScalarFieldEnum = {
   serverUrl: 'serverUrl',
   streamKey: 'streamKey',
   isLive: 'isLive',
+  startedAt: 'startedAt',
   isChatEnabled: 'isChatEnabled',
   isChatFollowersOnly: 'isChatFollowersOnly',
   isChatPremiumFollowersOnly: 'isChatPremiumFollowersOnly',

@@ -307,6 +307,7 @@ type StreamModel {
   isChatPremiumFollowersOnly: Boolean!
   isLive: Boolean!
   serverUrl: String
+  startedAt: DateTime
   streamKey: String
   thumbnailUrl: String
   title: String!

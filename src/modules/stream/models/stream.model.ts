@@ -29,6 +29,9 @@ export class StreamModel implements Stream {
 	@Field(() => Boolean)
 	public isLive: boolean
 
+	@Field(() => Date, { nullable: true })
+	public startedAt: Date
+
 	@Field(() => Boolean)
 	public isChatEnabled: boolean
 
