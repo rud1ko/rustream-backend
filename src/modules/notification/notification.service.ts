@@ -157,7 +157,7 @@ export class NotificationService {
 		const notification = await this.prismaService.notification.create({
 			data: {
 				message: `<b className='font-medium'>У вас новый спонсор!</b>
-				<p>Пользователь <a href='/${sponsor.username}' className='font-semibold'>${sponsor.deactivatedAt}</a> стал вышим спонсором, выбрав план <strong>${plan.title}</strong>.</p>
+				<p>Пользователь <a href='/${sponsor.username}' className='font-semibold'>${sponsor.displayName}</a> стал вышим спонсором, выбрав план <strong>${plan.title}</strong>.</p>
 				`,
 				type: NotificationType.NEW_SPONSORSHIP,
 				user: {

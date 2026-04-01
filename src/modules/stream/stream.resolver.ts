@@ -23,6 +23,11 @@ export class StreamResolver {
 		return this.streamService.findAllStreams(input)
 	}
 
+	@Query(() => [StreamModel], { name: 'findAllOnlineStreams' })
+	public async findAllOnlineStreams() {
+		return this.streamService.findAllOnlineStreams()
+	}
+
 	@Query(() => [StreamModel], { name: 'findRandomStreams' })
 	public async findRandomStreams() {
 		return this.streamService.findRandomStreams()

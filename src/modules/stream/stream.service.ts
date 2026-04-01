@@ -55,6 +55,23 @@ export class StreamService {
 		return streams
 	}
 
+	public async findAllOnlineStreams() {
+		const streams = await this.prismaService.stream.findMany({
+			where: {
+				user: {
+					isDeactivated: false,
+				},
+				isLive: true
+			},
+			include: { user: true, category: true },
+			orderBy: {
+				createdAt: 'desc',
+			},
+		})
+
+		return streams
+	}
+
 	public async findRandomStreams() {
 		const total = await this.prismaService.stream.count({
 			where: {
@@ -241,10 +258,10 @@ export class StreamService {
 					category: {
 						title: {
 							contains: searchTerm,
-							mode: 'insensitive'
-						}
-					}
-				}
+							mode: 'insensitive',
+						},
+					},
+				},
 			],
 		}
 	}

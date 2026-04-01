@@ -89,7 +89,7 @@ export class CronService {
 				},
 			})
 
-			if (followersCount > 10 && !user.isVerified) {
+			if (followersCount >= 10 && !user.isVerified) {
 				await this.prismaService.user.update({
 					where: {
 						id: user.id,

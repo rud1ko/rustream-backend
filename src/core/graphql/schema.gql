@@ -228,6 +228,7 @@ type PlanModel {
 
 type Query {
   findAllCategories: [CategoryModel!]!
+  findAllOnlineStreams: [StreamModel!]!
   findAllStreams(filters: FiltersInput!): [StreamModel!]!
   findAllUsers: [UserModel!]!
   findCategoryBySlug(slug: String!): CategoryModel!
