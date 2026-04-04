@@ -24,6 +24,11 @@ export class ChatService {
 			},
 			include: {
 				user: true,
+				replyTo: {
+					include: {
+						user: true,
+					},
+				},
 			},
 		})
 
@@ -31,7 +36,7 @@ export class ChatService {
 	}
 
 	public async sendMessage(userId: string, input: SendMessageInput) {
-		const { text, streamId } = input
+		const { text, streamId, replyToId } = input
 
 		const stream = await this.prismaService.stream.findUnique({
 			where: {
@@ -60,10 +65,22 @@ export class ChatService {
 						id: streamId,
 					},
 				},
+				...(replyToId && {
+					replyTo: {
+						connect: {
+							id: replyToId,
+						},
+					},
+				}),
 			},
 			include: {
 				stream: true,
 				user: true,
+				replyTo: {
+					include: {
+						user: true,
+					},
+				},
 			},
 		})
 

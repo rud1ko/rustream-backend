@@ -16,14 +16,20 @@ export class ChatMessageModel implements ChatMessage {
 	@Field(() => UserModel)
 	public user: UserModel
 
-	@Field(() => String)
-	public userId: string
+	@Field(() => String, { nullable: true })
+	public userId: string | null
 
 	@Field(() => StreamModel)
 	public stream: StreamModel
 
-	@Field(() => String)
-	public streamId: string
+	@Field(() => String, { nullable: true })
+	public streamId: string | null
+
+	@Field(() => ChatMessageModel, { nullable: true })
+	public replyTo?: ChatMessageModel
+
+	@Field(() => String, { nullable: true })
+	public replyToId: string | null
 
 	@Field(() => Date)
 	public createdAt: Date

@@ -57,12 +57,14 @@ input ChangeStreamInfoInput {
 type ChatMessageModel {
   createdAt: DateTime!
   id: ID!
+  replyTo: ChatMessageModel
+  replyToId: String
   stream: StreamModel!
-  streamId: String!
+  streamId: String
   text: String!
   updatedAt: DateTime!
   user: UserModel!
-  userId: String!
+  userId: String
 }
 
 type CreatePaymentModel {
@@ -258,6 +260,7 @@ input ResetPasswordInput {
 }
 
 input SendMessageInput {
+  replyToId: String
   streamId: String!
   text: String!
 }

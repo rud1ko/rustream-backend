@@ -164,6 +164,10 @@ model ChatMessage {
   stream   Stream? @relation(fields: [streamId], references: [id], onDelete: Cascade)
   streamId String? @map("stream_id")
 
+  replyToId String?
+  replyTo   ChatMessage?  @relation("MessageReplies", fields: [replyToId], references: [id])
+  replies   ChatMessage[] @relation("MessageReplies")
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
