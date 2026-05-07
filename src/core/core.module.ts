@@ -13,6 +13,7 @@ import { TotpModule } from '../modules/auth/totp/totp.module'
 import { VerificationModule } from '../modules/auth/verification/verification.module'
 import { CategoryModule } from '../modules/category/category.module'
 import { ChannelModule } from '../modules/channel/channel.module'
+import { TargetModule } from '../modules/channel/target/target.module'
 import { ChatModule } from '../modules/chat/chat.module'
 import { CronModule } from '../modules/cron/cron.module'
 import { FollowModule } from '../modules/follow/follow.module'
@@ -81,6 +82,7 @@ import { RedisModule } from './redis/redis.module'
 		PlanModule,
 		TransactionModule,
 		SubscriptionModule,
+		TargetModule,
 	],
 })
 export class CoreModule {}

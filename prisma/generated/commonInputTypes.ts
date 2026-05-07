@@ -253,6 +253,23 @@ export type EnumTransactionStatusWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumTransactionStatusFilter<$PrismaModel>
 }
 
+export type EnumChannelTargetTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ChannelTargetType | Prisma.EnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel> | $Enums.ChannelTargetType
+}
+
+export type EnumChannelTargetTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ChannelTargetType | Prisma.EnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumChannelTargetTypeWithAggregatesFilter<$PrismaModel> | $Enums.ChannelTargetType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -492,6 +509,23 @@ export type NestedEnumTransactionStatusWithAggregatesFilter<$PrismaModel = never
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumTransactionStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumTransactionStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumChannelTargetTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ChannelTargetType | Prisma.EnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel> | $Enums.ChannelTargetType
+}
+
+export type NestedEnumChannelTargetTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ChannelTargetType | Prisma.EnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ChannelTargetType[] | Prisma.ListEnumChannelTargetTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumChannelTargetTypeWithAggregatesFilter<$PrismaModel> | $Enums.ChannelTargetType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumChannelTargetTypeFilter<$PrismaModel>
 }
 
 

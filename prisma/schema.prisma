@@ -35,6 +35,13 @@ enum TransactionStatus {
   @@map("transaction_statuses")
 }
 
+enum ChannelTargetType {
+  FOLLOWERS
+  SUBSCRIPTIONS
+
+  @@map("channel_target_types")
+}
+
 model User {
   id          String @id @default(uuid())
   email       String @unique
@@ -64,6 +71,7 @@ model User {
   sponsorshipPlans         SponsorshipPlan[]
   sponsorshipSubscriptions SponsorshipSubscription[] @relation(name: "sponsorship_subscriptions")
   sponsors                 SponsorshipSubscription[] @relation("sponsors")
+  channelTargets           ChannelTarget[]
 
   isTotpEnabled Boolean @default(false) @map("is_totp_enabled")
   totpSecret    String? @map("totp_secret")
@@ -280,4 +288,19 @@ model SponsorshipSubscription {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("sponsorship_subscriptions")
+}
+
+model ChannelTarget {
+  id String @id @default(uuid())
+
+  type  ChannelTargetType
+  value Int
+
+  channel      User?    @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId    String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("channel_targets")
 }

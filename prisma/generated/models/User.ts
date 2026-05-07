@@ -282,6 +282,7 @@ export type UserWhereInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanListRelationFilter
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionListRelationFilter
   sponsors?: Prisma.SponsorshipSubscriptionListRelationFilter
+  channelTargets?: Prisma.ChannelTargetListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -313,6 +314,7 @@ export type UserOrderByWithRelationInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanOrderByRelationAggregateInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionOrderByRelationAggregateInput
   sponsors?: Prisma.SponsorshipSubscriptionOrderByRelationAggregateInput
+  channelTargets?: Prisma.ChannelTargetOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -347,6 +349,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   sponsorshipPlans?: Prisma.SponsorshipPlanListRelationFilter
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionListRelationFilter
   sponsors?: Prisma.SponsorshipSubscriptionListRelationFilter
+  channelTargets?: Prisma.ChannelTargetListRelationFilter
 }, "id" | "email" | "username" | "telegramId">
 
 export type UserOrderByWithAggregationInput = {
@@ -422,6 +425,7 @@ export type UserCreateInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -453,6 +457,7 @@ export type UserUncheckedCreateInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserUpdateInput = {
@@ -484,6 +489,7 @@ export type UserUpdateInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -515,6 +521,7 @@ export type UserUncheckedUpdateInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -847,6 +854,22 @@ export type UserUpdateOneWithoutSponsorsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSponsorsInput, Prisma.UserUpdateWithoutSponsorsInput>, Prisma.UserUncheckedUpdateWithoutSponsorsInput>
 }
 
+export type UserCreateNestedOneWithoutChannelTargetsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChannelTargetsInput, Prisma.UserUncheckedCreateWithoutChannelTargetsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChannelTargetsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutChannelTargetsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutChannelTargetsInput, Prisma.UserUncheckedCreateWithoutChannelTargetsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutChannelTargetsInput
+  upsert?: Prisma.UserUpsertWithoutChannelTargetsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutChannelTargetsInput, Prisma.UserUpdateWithoutChannelTargetsInput>, Prisma.UserUncheckedUpdateWithoutChannelTargetsInput>
+}
+
 export type UserCreateWithoutTokensInput = {
   id?: string
   email: string
@@ -875,6 +898,7 @@ export type UserCreateWithoutTokensInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutTokensInput = {
@@ -905,6 +929,7 @@ export type UserUncheckedCreateWithoutTokensInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutTokensInput = {
@@ -951,6 +976,7 @@ export type UserUpdateWithoutTokensInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTokensInput = {
@@ -981,6 +1007,7 @@ export type UserUncheckedUpdateWithoutTokensInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutSocialLinksInput = {
@@ -1011,6 +1038,7 @@ export type UserCreateWithoutSocialLinksInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutSocialLinksInput = {
@@ -1041,6 +1069,7 @@ export type UserUncheckedCreateWithoutSocialLinksInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutSocialLinksInput = {
@@ -1087,6 +1116,7 @@ export type UserUpdateWithoutSocialLinksInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSocialLinksInput = {
@@ -1117,6 +1147,7 @@ export type UserUncheckedUpdateWithoutSocialLinksInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutStreamInput = {
@@ -1147,6 +1178,7 @@ export type UserCreateWithoutStreamInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutStreamInput = {
@@ -1177,6 +1209,7 @@ export type UserUncheckedCreateWithoutStreamInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutStreamInput = {
@@ -1223,6 +1256,7 @@ export type UserUpdateWithoutStreamInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutStreamInput = {
@@ -1253,6 +1287,7 @@ export type UserUncheckedUpdateWithoutStreamInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutChatMessagesInput = {
@@ -1283,6 +1318,7 @@ export type UserCreateWithoutChatMessagesInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutChatMessagesInput = {
@@ -1313,6 +1349,7 @@ export type UserUncheckedCreateWithoutChatMessagesInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutChatMessagesInput = {
@@ -1359,6 +1396,7 @@ export type UserUpdateWithoutChatMessagesInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutChatMessagesInput = {
@@ -1389,6 +1427,7 @@ export type UserUncheckedUpdateWithoutChatMessagesInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutFollowersInput = {
@@ -1419,6 +1458,7 @@ export type UserCreateWithoutFollowersInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutFollowersInput = {
@@ -1449,6 +1489,7 @@ export type UserUncheckedCreateWithoutFollowersInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutFollowersInput = {
@@ -1484,6 +1525,7 @@ export type UserCreateWithoutFollowingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutFollowingsInput = {
@@ -1514,6 +1556,7 @@ export type UserUncheckedCreateWithoutFollowingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutFollowingsInput = {
@@ -1560,6 +1603,7 @@ export type UserUpdateWithoutFollowersInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFollowersInput = {
@@ -1590,6 +1634,7 @@ export type UserUncheckedUpdateWithoutFollowersInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUpsertWithoutFollowingsInput = {
@@ -1631,6 +1676,7 @@ export type UserUpdateWithoutFollowingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutFollowingsInput = {
@@ -1661,6 +1707,7 @@ export type UserUncheckedUpdateWithoutFollowingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutNotificationsInput = {
@@ -1691,6 +1738,7 @@ export type UserCreateWithoutNotificationsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutNotificationsInput = {
@@ -1721,6 +1769,7 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutNotificationsInput = {
@@ -1767,6 +1816,7 @@ export type UserUpdateWithoutNotificationsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotificationsInput = {
@@ -1797,6 +1847,7 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutNotificationSettingsInput = {
@@ -1827,6 +1878,7 @@ export type UserCreateWithoutNotificationSettingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutNotificationSettingsInput = {
@@ -1857,6 +1909,7 @@ export type UserUncheckedCreateWithoutNotificationSettingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutNotificationSettingsInput = {
@@ -1903,6 +1956,7 @@ export type UserUpdateWithoutNotificationSettingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutNotificationSettingsInput = {
@@ -1933,6 +1987,7 @@ export type UserUncheckedUpdateWithoutNotificationSettingsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutTransactionsInput = {
@@ -1963,6 +2018,7 @@ export type UserCreateWithoutTransactionsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutTransactionsInput = {
@@ -1993,6 +2049,7 @@ export type UserUncheckedCreateWithoutTransactionsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutTransactionsInput = {
@@ -2039,6 +2096,7 @@ export type UserUpdateWithoutTransactionsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutTransactionsInput = {
@@ -2069,6 +2127,7 @@ export type UserUncheckedUpdateWithoutTransactionsInput = {
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutSponsorshipPlansInput = {
@@ -2099,6 +2158,7 @@ export type UserCreateWithoutSponsorshipPlansInput = {
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutSponsorshipPlansInput = {
@@ -2129,6 +2189,7 @@ export type UserUncheckedCreateWithoutSponsorshipPlansInput = {
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutSponsorshipPlansInput = {
@@ -2175,6 +2236,7 @@ export type UserUpdateWithoutSponsorshipPlansInput = {
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSponsorshipPlansInput = {
@@ -2205,6 +2267,7 @@ export type UserUncheckedUpdateWithoutSponsorshipPlansInput = {
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserCreateWithoutSponsorshipSubscriptionsInput = {
@@ -2235,6 +2298,7 @@ export type UserCreateWithoutSponsorshipSubscriptionsInput = {
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutSponsorshipSubscriptionsInput = {
@@ -2265,6 +2329,7 @@ export type UserUncheckedCreateWithoutSponsorshipSubscriptionsInput = {
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutSponsorshipSubscriptionsInput = {
@@ -2300,6 +2365,7 @@ export type UserCreateWithoutSponsorsInput = {
   transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
   sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
+  channelTargets?: Prisma.ChannelTargetCreateNestedManyWithoutChannelInput
 }
 
 export type UserUncheckedCreateWithoutSponsorsInput = {
@@ -2330,6 +2396,7 @@ export type UserUncheckedCreateWithoutSponsorsInput = {
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
+  channelTargets?: Prisma.ChannelTargetUncheckedCreateNestedManyWithoutChannelInput
 }
 
 export type UserCreateOrConnectWithoutSponsorsInput = {
@@ -2376,6 +2443,7 @@ export type UserUpdateWithoutSponsorshipSubscriptionsInput = {
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSponsorshipSubscriptionsInput = {
@@ -2406,6 +2474,7 @@ export type UserUncheckedUpdateWithoutSponsorshipSubscriptionsInput = {
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUpsertWithoutSponsorsInput = {
@@ -2447,6 +2516,7 @@ export type UserUpdateWithoutSponsorsInput = {
   transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
+  channelTargets?: Prisma.ChannelTargetUpdateManyWithoutChannelNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSponsorsInput = {
@@ -2477,6 +2547,147 @@ export type UserUncheckedUpdateWithoutSponsorsInput = {
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
   sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
   sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  channelTargets?: Prisma.ChannelTargetUncheckedUpdateManyWithoutChannelNestedInput
+}
+
+export type UserCreateWithoutChannelTargetsInput = {
+  id?: string
+  email: string
+  password: string
+  username: string
+  displayName: string
+  avatar?: string | null
+  bio?: string | null
+  telegramId?: string | null
+  isVerified?: boolean
+  isEmailVerified?: boolean
+  isTotpEnabled?: boolean
+  totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tokens?: Prisma.TokenCreateNestedManyWithoutUserInput
+  socialLinks?: Prisma.SocialLinkCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamCreateNestedOneWithoutUserInput
+  chatMessages?: Prisma.ChatMessageCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationCreateNestedManyWithoutUserInput
+  notificationSettings?: Prisma.NotificationSettingsCreateNestedOneWithoutUserInput
+  followers?: Prisma.FollowCreateNestedManyWithoutFollowerInput
+  followings?: Prisma.FollowCreateNestedManyWithoutFollowingInput
+  transactions?: Prisma.TransactionCreateNestedManyWithoutUserInput
+  sponsorshipPlans?: Prisma.SponsorshipPlanCreateNestedManyWithoutChannelInput
+  sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutUserInput
+  sponsors?: Prisma.SponsorshipSubscriptionCreateNestedManyWithoutChannelInput
+}
+
+export type UserUncheckedCreateWithoutChannelTargetsInput = {
+  id?: string
+  email: string
+  password: string
+  username: string
+  displayName: string
+  avatar?: string | null
+  bio?: string | null
+  telegramId?: string | null
+  isVerified?: boolean
+  isEmailVerified?: boolean
+  isTotpEnabled?: boolean
+  totpSecret?: string | null
+  isDeactivated?: boolean
+  deactivatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  tokens?: Prisma.TokenUncheckedCreateNestedManyWithoutUserInput
+  socialLinks?: Prisma.SocialLinkUncheckedCreateNestedManyWithoutUserInput
+  stream?: Prisma.StreamUncheckedCreateNestedOneWithoutUserInput
+  chatMessages?: Prisma.ChatMessageUncheckedCreateNestedManyWithoutUserInput
+  notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutUserInput
+  notificationSettings?: Prisma.NotificationSettingsUncheckedCreateNestedOneWithoutUserInput
+  followers?: Prisma.FollowUncheckedCreateNestedManyWithoutFollowerInput
+  followings?: Prisma.FollowUncheckedCreateNestedManyWithoutFollowingInput
+  transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutUserInput
+  sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedCreateNestedManyWithoutChannelInput
+  sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutUserInput
+  sponsors?: Prisma.SponsorshipSubscriptionUncheckedCreateNestedManyWithoutChannelInput
+}
+
+export type UserCreateOrConnectWithoutChannelTargetsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutChannelTargetsInput, Prisma.UserUncheckedCreateWithoutChannelTargetsInput>
+}
+
+export type UserUpsertWithoutChannelTargetsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutChannelTargetsInput, Prisma.UserUncheckedUpdateWithoutChannelTargetsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutChannelTargetsInput, Prisma.UserUncheckedCreateWithoutChannelTargetsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutChannelTargetsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutChannelTargetsInput, Prisma.UserUncheckedUpdateWithoutChannelTargetsInput>
+}
+
+export type UserUpdateWithoutChannelTargetsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telegramId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tokens?: Prisma.TokenUpdateManyWithoutUserNestedInput
+  socialLinks?: Prisma.SocialLinkUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUpdateOneWithoutUserNestedInput
+  chatMessages?: Prisma.ChatMessageUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUpdateManyWithoutUserNestedInput
+  notificationSettings?: Prisma.NotificationSettingsUpdateOneWithoutUserNestedInput
+  followers?: Prisma.FollowUpdateManyWithoutFollowerNestedInput
+  followings?: Prisma.FollowUpdateManyWithoutFollowingNestedInput
+  transactions?: Prisma.TransactionUpdateManyWithoutUserNestedInput
+  sponsorshipPlans?: Prisma.SponsorshipPlanUpdateManyWithoutChannelNestedInput
+  sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUpdateManyWithoutUserNestedInput
+  sponsors?: Prisma.SponsorshipSubscriptionUpdateManyWithoutChannelNestedInput
+}
+
+export type UserUncheckedUpdateWithoutChannelTargetsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  displayName?: Prisma.StringFieldUpdateOperationsInput | string
+  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bio?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  telegramId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isTotpEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  totpSecret?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeactivated?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deactivatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  tokens?: Prisma.TokenUncheckedUpdateManyWithoutUserNestedInput
+  socialLinks?: Prisma.SocialLinkUncheckedUpdateManyWithoutUserNestedInput
+  stream?: Prisma.StreamUncheckedUpdateOneWithoutUserNestedInput
+  chatMessages?: Prisma.ChatMessageUncheckedUpdateManyWithoutUserNestedInput
+  notifications?: Prisma.NotificationUncheckedUpdateManyWithoutUserNestedInput
+  notificationSettings?: Prisma.NotificationSettingsUncheckedUpdateOneWithoutUserNestedInput
+  followers?: Prisma.FollowUncheckedUpdateManyWithoutFollowerNestedInput
+  followings?: Prisma.FollowUncheckedUpdateManyWithoutFollowingNestedInput
+  transactions?: Prisma.TransactionUncheckedUpdateManyWithoutUserNestedInput
+  sponsorshipPlans?: Prisma.SponsorshipPlanUncheckedUpdateManyWithoutChannelNestedInput
+  sponsorshipSubscriptions?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  sponsors?: Prisma.SponsorshipSubscriptionUncheckedUpdateManyWithoutChannelNestedInput
 }
 
 
@@ -2495,6 +2706,7 @@ export type UserCountOutputType = {
   sponsorshipPlans: number
   sponsorshipSubscriptions: number
   sponsors: number
+  channelTargets: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2508,6 +2720,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   sponsorshipPlans?: boolean | UserCountOutputTypeCountSponsorshipPlansArgs
   sponsorshipSubscriptions?: boolean | UserCountOutputTypeCountSponsorshipSubscriptionsArgs
   sponsors?: boolean | UserCountOutputTypeCountSponsorsArgs
+  channelTargets?: boolean | UserCountOutputTypeCountChannelTargetsArgs
 }
 
 /**
@@ -2590,6 +2803,13 @@ export type UserCountOutputTypeCountSponsorsArgs<ExtArgs extends runtime.Types.E
   where?: Prisma.SponsorshipSubscriptionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountChannelTargetsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ChannelTargetWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -2620,6 +2840,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   sponsorshipPlans?: boolean | Prisma.User$sponsorshipPlansArgs<ExtArgs>
   sponsorshipSubscriptions?: boolean | Prisma.User$sponsorshipSubscriptionsArgs<ExtArgs>
   sponsors?: boolean | Prisma.User$sponsorsArgs<ExtArgs>
+  channelTargets?: boolean | Prisma.User$channelTargetsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -2694,6 +2915,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   sponsorshipPlans?: boolean | Prisma.User$sponsorshipPlansArgs<ExtArgs>
   sponsorshipSubscriptions?: boolean | Prisma.User$sponsorshipSubscriptionsArgs<ExtArgs>
   sponsors?: boolean | Prisma.User$sponsorsArgs<ExtArgs>
+  channelTargets?: boolean | Prisma.User$channelTargetsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -2714,6 +2936,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     sponsorshipPlans: Prisma.$SponsorshipPlanPayload<ExtArgs>[]
     sponsorshipSubscriptions: Prisma.$SponsorshipSubscriptionPayload<ExtArgs>[]
     sponsors: Prisma.$SponsorshipSubscriptionPayload<ExtArgs>[]
+    channelTargets: Prisma.$ChannelTargetPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -3138,6 +3361,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   sponsorshipPlans<T extends Prisma.User$sponsorshipPlansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sponsorshipPlansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SponsorshipPlanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sponsorshipSubscriptions<T extends Prisma.User$sponsorshipSubscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sponsorshipSubscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SponsorshipSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   sponsors<T extends Prisma.User$sponsorsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$sponsorsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SponsorshipSubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  channelTargets<T extends Prisma.User$channelTargetsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$channelTargetsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChannelTargetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3846,6 +4070,30 @@ export type User$sponsorsArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.SponsorshipSubscriptionScalarFieldEnum | Prisma.SponsorshipSubscriptionScalarFieldEnum[]
+}
+
+/**
+ * User.channelTargets
+ */
+export type User$channelTargetsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ChannelTarget
+   */
+  select?: Prisma.ChannelTargetSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ChannelTarget
+   */
+  omit?: Prisma.ChannelTargetOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ChannelTargetInclude<ExtArgs> | null
+  where?: Prisma.ChannelTargetWhereInput
+  orderBy?: Prisma.ChannelTargetOrderByWithRelationInput | Prisma.ChannelTargetOrderByWithRelationInput[]
+  cursor?: Prisma.ChannelTargetWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ChannelTargetScalarFieldEnum | Prisma.ChannelTargetScalarFieldEnum[]
 }
 
 /**

@@ -9,6 +9,7 @@ import { SubscriptionModel } from '@/src/modules/sponsorship/subscription/models
 import { StreamModel } from '@/src/modules/stream/models/stream.model'
 
 import { SocialLinkModel } from '../../social-link/models/social-link.model'
+import { ChannelTargetModel } from '@/src/modules/channel/target/models/target.model'
 
 @ObjectType()
 export class UserModel implements User {
@@ -77,6 +78,9 @@ export class UserModel implements User {
 
 	@Field(() => [SubscriptionModel])
 	public sponsorshipSubscriptions: SubscriptionModel[]
+
+	@Field(() => [ChannelTargetModel])
+	public channelTargets: ChannelTargetModel[]
 
 	@Field(() => Date)
 	public createdAt: Date

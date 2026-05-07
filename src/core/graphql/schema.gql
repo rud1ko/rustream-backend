@@ -54,6 +54,21 @@ input ChangeStreamInfoInput {
   title: String!
 }
 
+type ChannelTargetModel {
+  channel: UserModel!
+  channelId: String!
+  createdAt: DateTime!
+  id: ID!
+  type: ChannelTargetType!
+  updatedAt: DateTime!
+  value: Float!
+}
+
+enum ChannelTargetType {
+  FOLLOWERS
+  SUBSCRIPTIONS
+}
+
 type ChatMessageModel {
   createdAt: DateTime!
   id: ID!
@@ -65,6 +80,11 @@ type ChatMessageModel {
   updatedAt: DateTime!
   user: UserModel!
   userId: String
+}
+
+input CreateChannelTargetInput {
+  type: ChannelTargetType!
+  value: Float!
 }
 
 type CreatePaymentModel {
@@ -154,6 +174,7 @@ type Mutation {
   changeStreamThumbnail(thumbnail: Upload!): Boolean!
   cleanAllIngresses: Boolean!
   clearSessionCookie: Boolean!
+  createChannelTarget(data: CreateChannelTargetInput!): Boolean!
   createIngress(ingressType: Float!): Boolean!
   createPayment(planId: String!): CreatePaymentModel!
   createSocialLink(data: SocialLinkInput!): Boolean!
@@ -167,6 +188,7 @@ type Mutation {
   loginUser(data: LoginInput!): AuthModel!
   logoutUser: Boolean!
   newPassword(data: NewPasswordInput!): Boolean!
+  removeChannelTarget(targetId: String!): Boolean!
   removeProfileAvatar: Boolean!
   removeSession(id: String!): Boolean!
   removeSocialLink(id: String!): Boolean!
@@ -230,6 +252,7 @@ type PlanModel {
 
 type Query {
   findAllCategories: [CategoryModel!]!
+  findAllChannelTargetsByUserId: [ChannelTargetModel!]!
   findAllOnlineStreams: [StreamModel!]!
   findAllStreams(filters: FiltersInput!): [StreamModel!]!
   findAllUsers: [UserModel!]!
@@ -366,6 +389,7 @@ scalar Upload
 type UserModel {
   avatar: String
   bio: String
+  channelTargets: [ChannelTargetModel!]!
   createdAt: DateTime!
   deactivatedAt: DateTime
   displayName: String!

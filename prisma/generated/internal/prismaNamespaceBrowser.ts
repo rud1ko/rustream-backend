@@ -62,7 +62,8 @@ export const ModelName = {
   NotificationSettings: 'NotificationSettings',
   Transaction: 'Transaction',
   SponsorshipPlan: 'SponsorshipPlan',
-  SponsorshipSubscription: 'SponsorshipSubscription'
+  SponsorshipSubscription: 'SponsorshipSubscription',
+  ChannelTarget: 'ChannelTarget'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -252,6 +253,18 @@ export const SponsorshipSubscriptionScalarFieldEnum = {
 } as const
 
 export type SponsorshipSubscriptionScalarFieldEnum = (typeof SponsorshipSubscriptionScalarFieldEnum)[keyof typeof SponsorshipSubscriptionScalarFieldEnum]
+
+
+export const ChannelTargetScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  value: 'value',
+  channelId: 'channelId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ChannelTargetScalarFieldEnum = (typeof ChannelTargetScalarFieldEnum)[keyof typeof ChannelTargetScalarFieldEnum]
 
 
 export const SortOrder = {

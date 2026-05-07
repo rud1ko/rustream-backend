@@ -38,3 +38,11 @@ export const TransactionStatus = {
 } as const
 
 export type TransactionStatus = (typeof TransactionStatus)[keyof typeof TransactionStatus]
+
+
+export const ChannelTargetType = {
+  FOLLOWERS: 'FOLLOWERS',
+  SUBSCRIPTIONS: 'SUBSCRIPTIONS'
+} as const
+
+export type ChannelTargetType = (typeof ChannelTargetType)[keyof typeof ChannelTargetType]

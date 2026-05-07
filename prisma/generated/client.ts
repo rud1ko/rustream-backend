@@ -97,3 +97,8 @@ export type SponsorshipPlan = Prisma.SponsorshipPlanModel
  * 
  */
 export type SponsorshipSubscription = Prisma.SponsorshipSubscriptionModel
+/**
+ * Model ChannelTarget
+ * 
+ */
+export type ChannelTarget = Prisma.ChannelTargetModel

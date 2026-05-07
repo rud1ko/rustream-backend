@@ -395,7 +395,8 @@ export const ModelName = {
   NotificationSettings: 'NotificationSettings',
   Transaction: 'Transaction',
   SponsorshipPlan: 'SponsorshipPlan',
-  SponsorshipSubscription: 'SponsorshipSubscription'
+  SponsorshipSubscription: 'SponsorshipSubscription',
+  ChannelTarget: 'ChannelTarget'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -411,7 +412,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "token" | "socialLink" | "stream" | "category" | "chatMessage" | "follow" | "notification" | "notificationSettings" | "transaction" | "sponsorshipPlan" | "sponsorshipSubscription"
+    modelProps: "user" | "token" | "socialLink" | "stream" | "category" | "chatMessage" | "follow" | "notification" | "notificationSettings" | "transaction" | "sponsorshipPlan" | "sponsorshipSubscription" | "channelTarget"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1303,6 +1304,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ChannelTarget: {
+      payload: Prisma.$ChannelTargetPayload<ExtArgs>
+      fields: Prisma.ChannelTargetFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ChannelTargetFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ChannelTargetFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        findFirst: {
+          args: Prisma.ChannelTargetFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ChannelTargetFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        findMany: {
+          args: Prisma.ChannelTargetFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>[]
+        }
+        create: {
+          args: Prisma.ChannelTargetCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        createMany: {
+          args: Prisma.ChannelTargetCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ChannelTargetCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>[]
+        }
+        delete: {
+          args: Prisma.ChannelTargetDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        update: {
+          args: Prisma.ChannelTargetUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        deleteMany: {
+          args: Prisma.ChannelTargetDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ChannelTargetUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ChannelTargetUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>[]
+        }
+        upsert: {
+          args: Prisma.ChannelTargetUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ChannelTargetPayload>
+        }
+        aggregate: {
+          args: Prisma.ChannelTargetAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateChannelTarget>
+        }
+        groupBy: {
+          args: Prisma.ChannelTargetGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ChannelTargetGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ChannelTargetCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ChannelTargetCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1515,6 +1590,18 @@ export const SponsorshipSubscriptionScalarFieldEnum = {
 export type SponsorshipSubscriptionScalarFieldEnum = (typeof SponsorshipSubscriptionScalarFieldEnum)[keyof typeof SponsorshipSubscriptionScalarFieldEnum]
 
 
+export const ChannelTargetScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  value: 'value',
+  channelId: 'channelId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ChannelTargetScalarFieldEnum = (typeof ChannelTargetScalarFieldEnum)[keyof typeof ChannelTargetScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1649,6 +1736,20 @@ export type EnumTransactionStatusFieldRefInput<$PrismaModel> = FieldRefInputType
 export type ListEnumTransactionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TransactionStatus[]'>
     
 
+
+/**
+ * Reference to a field of type 'ChannelTargetType'
+ */
+export type EnumChannelTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChannelTargetType'>
+    
+
+
+/**
+ * Reference to a field of type 'ChannelTargetType[]'
+ */
+export type ListEnumChannelTargetTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChannelTargetType[]'>
+    
+
 /**
  * Batch Payload for updateMany & deleteMany & createMany
  */
@@ -1756,6 +1857,7 @@ export type GlobalOmitConfig = {
   transaction?: Prisma.TransactionOmit
   sponsorshipPlan?: Prisma.SponsorshipPlanOmit
   sponsorshipSubscription?: Prisma.SponsorshipSubscriptionOmit
+  channelTarget?: Prisma.ChannelTargetOmit
 }
 
 /* Types for Logging */
